@@ -34,4 +34,9 @@ class Categoria extends Model
     {
         return $this->hasMany('App\Models\Producto' , 'id_ctg_producto' , 'id_ctg_producto');
     }
+
+    public function estado(){
+        return $this->belongsTo('App\Models\Estado', 'id_estado', 'id_estado');
+    }
+
 }

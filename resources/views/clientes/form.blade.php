@@ -1,3 +1,5 @@
+
+
 {{-- @foreach ($errors->all() as $error)
     {{ $error }}
 @endforeach --}}
@@ -92,7 +94,7 @@
 </div>
 <div class="form-group">
     <label for="">Estado</label>
-    <select name="txtEstado" id="txtEstado">
+    <select class="form-control" name="txtEstado" id="txtEstado">
         @if (isset($clientes->id_estado))
             <option value="{{ $clientes->id_estado }}">{{ $clientes->estado->desc_estado }}</option>
             <option >_________________________</option>
