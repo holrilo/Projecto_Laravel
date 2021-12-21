@@ -7,6 +7,7 @@ use App\Models\Estado;
 use App\Models\tipo_id;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class ClienteController extends Controller
 {
@@ -15,10 +16,24 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
+        $this->middleware('auth');
+    }
+    public function index(Request $request)
+    {
+
+        $bdesc = $request->get('txtBdesc');
+
+        if ($bdesc) {
+            # code...
+            $clientes = Cliente::where('nom_cliente_1' , 'LIKE' , "%$bdesc%" )->get();
+        }else
+        {
+            $clientes = Cliente::all();
+        }
+        
         //
-        $clientes = Cliente::all();
         //$tiposids = tipo_id::all();
         return view('clientes.index', compact('clientes'));
     }

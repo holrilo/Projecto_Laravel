@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class gasto extends Model
+class gastosa extends Model
 {
     use HasFactory;
-
-    protected $table = "gastos";
+    
+    protected $table = "gastosa";
     protected $primaryKey = "id_gasto";
 
     public function tipo_gastos(){
@@ -19,5 +19,4 @@ class gasto extends Model
      public function tipo_ingresos(){
         return $this->belongsTo('App\Models\Ingreso', 'id_ingreso' , 'id_ingreso');
     } 
-
 }

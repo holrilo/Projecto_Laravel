@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGastosTable extends Migration
+class CreateGastosaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateGastosTable extends Migration
      */
     public function up()
     {
-        Schema::create('gastos', function (Blueprint $table) {
-            //$table->id();
+        Schema::create('gastosa', function (Blueprint $table) {
             $table->engine = "InnoDB";  
 
             $table->bigIncrements('id_gasto');
@@ -38,6 +37,6 @@ class CreateGastosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gastos');
+        Schema::dropIfExists('gastosa');
     }
 }

@@ -19,4 +19,10 @@ class Cliente extends Model
     public function tipo_id(){
         return $this->belongsTo('App\Models\tipo_id', 'id_tipo_id', 'id_tipo_id');
     }
+
+    public function scopeName1($query, $name1){
+        if($name1){
+            return $query->orWhere('nom_cliente_1', 'LIKE', '$name1');
+        }
+    }
 }

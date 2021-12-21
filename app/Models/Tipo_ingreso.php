@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class tipo_gasto extends Model
+class Tipo_ingreso extends Model
 {
     use HasFactory;
-
-    protected $table = "tipo_gastos";
-    protected $primaryKey = "id_tipo_gasto";
 }

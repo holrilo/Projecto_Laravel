@@ -18,8 +18,18 @@
                             </div>
                         </div>
                         <div class="card-body">
-{{--                             <h4 class="card-title">Title</h4>
+                            {{-- <h4 class="card-title">Title</h4>
                             <p class="card-text">Text</p> --}}
+
+                            <form >
+                                <div class="form-group">
+                                    <label for="">Buscar</label>
+                                    <input type="search" name="txtBdesc" id="txtBdesc" class="form-control" placeholder=""
+                                        aria-describedby="helpId">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                                </div>
+                            </form>
+
                             <table class="table">
                                 <thead>
                                     <tr>

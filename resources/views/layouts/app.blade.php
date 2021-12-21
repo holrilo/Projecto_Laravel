@@ -39,30 +39,43 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('producto.index') }}">{{ __('Productos') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('categoria.index') }}">{{ __('Categoria') }}</a>
-                        </li>
-                    </ul>
+                    @auth
+
+
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item {{ request()->is('clientes') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('clientes.index') }}">{{ __('Clientes') }}</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('producto') ? 'active' : '' }}">
+                                <a class="nav-link"
+                                    href="{{ route('producto.index') }}">{{ __('Productos') }}</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('categoria') ? 'active' : '' }}">
+                                <a class="nav-link"
+                                    href="{{ route('categoria.index') }}">{{ __('Categoria') }}</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('gastos') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('gastos.index') }}">{{ __('Gastos') }}</a>
+                            </li>
+                            <li class="nav-item {{ request()->is('ingresos') ? 'active' : '' }}">
+                                <a class="nav-link"
+                                    href="{{ route('ingresos.index') }}">{{ __('Ingresos') }}</a>
+                            </li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="nav-item {{ request()->is('login') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item {{ request()->is('register') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
@@ -75,7 +88,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -92,6 +105,7 @@
         </nav>
 
         <main class="py-4">
+            Esta en : {{ request()->path() }}
             @yield('content')
         </main>
     </div>
